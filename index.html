@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spenglerei Spevan | Ihr Spengler in Ingolstadt</title>
+    <meta name="description" content="Spenglerei Spevan in Ingolstadt - Spenglerarbeiten, Metalldächer, Fassaden, Foliendächer, EPDM, Abdichtungen, Asbestabbau und Altbau-Sanierungen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #2d2d28;
+            --color-primary-light: #3a3a34;
+            --color-accent: #4a5568;
+            --color-accent-steel: #5a6a7a;
+            --color-text: #1a1a1a;
+            --color-text-medium: #707070;
+            --color-text-light: #9f9e9e;
+            --color-bg: #ffffff;
+            --color-bg-alt: #f5f5f5;
+            --color-bg-dark: #2d2d28;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --section-padding: 100px 0;
+            --container-width: 1140px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            line-height: 1.7;
+            background: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav.scrolled {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 88px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav.scrolled .nav-logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--color-text-medium);
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--color-primary) !important;
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 4px;
+            font-size: 0.85rem !important;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--color-primary-light) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-primary);
+            transition: var(--transition);
+            display: block;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--color-accent-steel);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 64px 80px;
+            background: var(--color-bg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 80px;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0) 20%, rgba(0,0,0,0.03));
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0.08) 0%, transparent 30%),
+                        linear-gradient(to top, rgba(45, 45, 40, 0.25) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--color-accent-steel);
+            margin-bottom: 28px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--color-accent-steel);
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 4vw, 3.4rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--color-text-medium);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 56px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .hero-stat-number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .hero-stat-label {
+            font-size: 0.78rem;
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-bg-alt);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline:hover {
+            border-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        .btn-dark:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ========== SECTION STYLES ========== */
+        .section {
+            padding: var(--section-padding);
+        }
+
+        .section-alt {
+            background: var(--color-bg-alt);
+        }
+
+        .section-dark {
+            background: var(--color-bg-dark);
+            color: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent-steel);
+            margin-bottom: 16px;
+        }
+
+        .section-dark .section-label {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-dark .section-header h2 {
+            color: #fff;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--color-text-medium);
+            line-height: 1.7;
+        }
+
+        .section-dark .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ========== ABOUT ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .about-image-inner {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background:
+                linear-gradient(160deg, rgba(45, 45, 40, 0.85) 0%, rgba(90, 106, 122, 0.7) 100%),
+                url('https://images.unsplash.com/photo-1621905252507-b35492CC74b4?w=800&q=80') center/cover no-repeat;
+            border-radius: 6px;
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 4px;
+        }
+
+        .about-image-badge .number {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-image-badge .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+        }
+
+        .about-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .about-content p {
+            color: var(--color-text-medium);
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .about-details {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .about-detail {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .about-detail-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-bg-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .about-detail-text {
+            font-size: 0.9rem;
+        }
+
+        .about-detail-text strong {
+            display: block;
+            color: var(--color-primary);
+            margin-bottom: 2px;
+        }
+
+        .about-detail-text span {
+            color: var(--color-text-medium);
+        }
+
+        /* ========== SERVICES ========== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 40px 32px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-accent-steel);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-color: transparent;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-number {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.06);
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.92rem;
+            color: var(--color-text-medium);
+            line-height: 1.7;
+        }
+
+        /* ========== PARTNERS ========== */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .partner-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .partner-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .partner-name {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .partner-url {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .partner-card:hover .partner-url {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ========== CERTIFICATIONS ========== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .cert-item {
+            padding: 40px 24px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+
+        .cert-item:hover {
+            border-color: var(--color-accent-steel);
+        }
+
+        .cert-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: var(--color-bg-alt);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+
+        .cert-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .cert-item p {
+            font-size: 0.9rem;
+            color: var(--color-text-medium);
+        }
+
+        /* ========== CONTACT ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            color: var(--color-text-medium);
+            margin-bottom: 32px;
+            font-size: 1rem;
+        }
+
+        .contact-block {
+            margin-bottom: 28px;
+        }
+
+        .contact-block-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent-steel);
+            margin-bottom: 8px;
+        }
+
+        .contact-block-value {
+            font-size: 1rem;
+            color: var(--color-text);
+            line-height: 1.8;
+        }
+
+        .contact-block-value a {
+            color: var(--color-primary);
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-block-value a:hover {
+            border-bottom-color: var(--color-primary);
+        }
+
+        .contact-map {
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contact-map-inner {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background:
+                linear-gradient(135deg, #e8e8e8 0%, #d4d4d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+            border-radius: 6px;
+        }
+
+        .contact-map-inner .map-icon {
+            font-size: 2.5rem;
+            opacity: 0.4;
+        }
+
+        .contact-map-inner a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        /* ========== FIXED SIDE BUTTONS ========== */
+        .side-buttons {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .side-btn {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            background: rgba(45, 45, 40, 0.88);
+            color: #fff;
+            padding: 16px 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: none;
+            font-family: var(--font-body);
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .side-btn:hover {
+            background: rgba(45, 45, 40, 1);
+            padding: 24px 12px;
+            border-left-color: #fff;
+        }
+
+        /* ========== CTA BANNER ========== */
+        .cta-banner {
+            padding: 80px 0;
+            background:
+                linear-gradient(135deg, rgba(45, 45, 40, 0.95) 0%, rgba(60, 65, 72, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80') center/cover no-repeat;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-banner h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cta-banner p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--color-primary);
+            color: #fff;
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand img {
+            height: 56px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer h4 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-contact-item {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            padding: 24px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+        }
+
+        .back-to-top:hover {
+            color: #fff;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-grid {
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 72px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-inner {
+                height: 64px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-left {
+                padding: 100px 24px 48px;
+                order: 1;
+            }
+
+            .hero-right {
+                order: 0;
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-desc {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-stats {
+                gap: 24px;
+                margin-top: 40px;
+            }
+
+            .hero-stat-number {
+                font-size: 1.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image-inner {
+                aspect-ratio: 16/10;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .side-buttons {
+                display: none;
+            }
+
+            .section-header {
+                margin-bottom: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-right {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.82rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .service-card {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="https://www.spevan.de/images/Website-Spevan-Logo.png" alt="Spenglerei Spevan Logo"></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#ueber-uns">Über uns</a></li>
+                <li><a href="#leistungen">Leistungen</a></li>
+                <li><a href="#partner">Partner</a></li>
+                <li><a href="#referenzen">Referenzen</a></li>
+                <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" aria-label="Menü öffnen" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#ueber-uns" class="mobile-link">Über uns</a>
+        <a href="#leistungen" class="mobile-link">Leistungen</a>
+        <a href="#partner" class="mobile-link">Partner</a>
+        <a href="#referenzen" class="mobile-link">Referenzen</a>
+        <a href="#kontakt" class="mobile-link">Kontakt</a>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <div class="hero-badge">Ihr Spengler in Ingolstadt</div>
+            <h1>Willkommen bei der Spenglerei Spevan</h1>
+            <p class="hero-desc">Ihr zuverlässiger Fachbetrieb für Spenglerarbeiten, Metalldächer, Fassaden und Abdichtungen in Ingolstadt und Umgebung.</p>
+            <div class="hero-buttons">
+                <a href="#leistungen" class="btn btn-dark">Zu unseren Leistungen</a>
+                <a href="#kontakt" class="btn btn-outline" style="border-color: var(--color-primary); color: var(--color-primary);">Jetzt anfragen</a>
+            </div>
+            <div class="hero-stats">
+                <div>
+                    <div class="hero-stat-number">9</div>
+                    <div class="hero-stat-label">Leistungsbereiche</div>
+                </div>
+                <div>
+                    <div class="hero-stat-number">7</div>
+                    <div class="hero-stat-label">Starke Partner</div>
+                </div>
+                <div>
+                    <div class="hero-stat-number">TRGS</div>
+                    <div class="hero-stat-label">519 Zertifiziert</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="https://www.spevan.de/images/Zufallsbild/dia_001.jpg" alt="Spenglerei Spevan Fahrzeug">
+        </div>
+    </section>
+
+    <!-- ===== ÜBER UNS ===== -->
+    <section class="section" id="ueber-uns">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-image-inner"></div>
+                    <div class="about-image-badge">
+                        <div class="label">Inhaber</div>
+                        <div class="number" style="font-size:1.3rem; margin-top:4px;">Peter Spevan</div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-label">Über uns</span>
+                    <h3>Spenglerei Spevan</h3>
+                    <p>Die Spenglerei Spevan ist Ihr kompetenter Partner für sämtliche Spenglerarbeiten in Ingolstadt und der Region. Als Fachbetrieb mit Zulassung nach TRGS 519 (TÜV Süd geprüft) bieten wir Ihnen ein breites Leistungsspektrum rund um Dach und Fassade.</p>
+                    <p>Von Metalldächern und Fassaden über Foliendächer bis hin zu Abdichtungen und Altbau-Sanierungen stehen wir Ihnen mit fachlicher Kompetenz und Zuverlässigkeit zur Seite.</p>
+                    <div class="about-details">
+                        <div class="about-detail">
+                            <div class="about-detail-icon">&#9742;</div>
+                            <div class="about-detail-text">
+                                <strong>Telefon</strong>
+                                <span>+49 (0)841 93762183</span>
+                            </div>
+                        </div>
+                        <div class="about-detail">
+                            <div class="about-detail-icon">&#9993;</div>
+                            <div class="about-detail-text">
+                                <strong>Mobil</strong>
+                                <span>+49 (0)152 31823113</span>
+                            </div>
+                        </div>
+                        <div class="about-detail">
+                            <div class="about-detail-icon">&#9881;</div>
+                            <div class="about-detail-text">
+                                <strong>Fax</strong>
+                                <span>+49 (0)841 99374068</span>
+                            </div>
+                        </div>
+                        <div class="about-detail">
+                            <div class="about-detail-icon">&#127968;</div>
+                            <div class="about-detail-text">
+                                <strong>Adresse</strong>
+                                <span>Regensburger Str. 267<br>85055 Ingolstadt</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LEISTUNGEN ===== -->
+    <section class="section section-alt" id="leistungen">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Unser Angebot</span>
+                <h2>Folgende Leistungen werden angeboten</h2>
+                <p>Ob Neubau oder Sanierung, wir bieten Ihnen ein umfassendes Leistungsspektrum rund um Dach und Fassade.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <h3>Spenglerarbeiten</h3>
+                    <p>Professionelle Spenglerarbeiten für Dach und Fassade. Präzise Blechverarbeitung und fachgerechte Montage.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Metalldächer</h3>
+                    <p>Langlebige und formschöne Metalldächer für jeden Gebäudetyp. Hochwertige Materialien und saubere Ausführung.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>Fassaden aus Metall</h3>
+                    <p>Moderne Metallfassaden für eine ansprechende und witterungsbeständige Gebäudehülle.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <h3>Foliendächer</h3>
+                    <p>Zuverlässige Foliendächer für eine sichere und dauerhafte Abdichtung Ihres Flachdachs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">05</div>
+                    <h3>Dächer aus EPDM</h3>
+                    <p>EPDM-Dachabdichtungen für höchste Beständigkeit gegen Witterung und UV-Strahlung.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">06</div>
+                    <h3>Abdichtungen aus Flüssigkunststoff</h3>
+                    <p>Nahtlose Flüssigkunststoff-Abdichtungen für komplexe Dachgeometrien und Detailanschlüsse.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">07</div>
+                    <h3>Rollnahtgeschweißte Edelstahldächer</h3>
+                    <p>Hochwertige Edelstahldächer mit rollnahtgeschweißten Verbindungen für maximale Dichtigkeit.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">08</div>
+                    <h3>Asbest Abbau</h3>
+                    <p>Fachgerechter Asbestabbau mit Zulassung nach TRGS 519, TÜV Süd geprüft. Sichere Entsorgung und Sanierung.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">09</div>
+                    <h3>Altbau-Sanierungen</h3>
+                    <p>Umfassende Sanierungsleistungen für Altbauten. Dachsanierung und Fassadenerneuerung aus einer Hand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Haben Sie Fragen zu unseren Leistungen?</h2>
+            <p>Gerne stehen wir Ihnen mit Rat und Tat zur Seite. Kontaktieren Sie uns für eine unverbindliche Beratung.</p>
+            <a href="#kontakt" class="btn btn-primary">Jetzt unverbindlich anfragen</a>
+        </div>
+    </section>
+
+    <!-- ===== PARTNER ===== -->
+    <section class="section section-dark" id="partner">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Partnerschaften</span>
+                <h2>Unsere Partner</h2>
+                <p>Wir arbeiten mit führenden Herstellern der Branche zusammen, um Ihnen höchste Qualität zu gewährleisten.</p>
+            </div>
+            <div class="partners-grid">
+                <a href="https://www.bauder.de" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Bauder</div>
+                    <div class="partner-url">www.bauder.de</div>
+                </a>
+                <a href="https://www.enke-werk.de" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Enke-Werk</div>
+                    <div class="partner-url">www.enke-werk.de</div>
+                </a>
+                <a href="https://www.ccm-europe.com" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Carlisle (CCM Europe)</div>
+                    <div class="partner-url">www.ccm-europe.com</div>
+                </a>
+                <a href="https://www.kalzip.com/kalzip/" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Kalzip</div>
+                    <div class="partner-url">www.kalzip.com</div>
+                </a>
+                <a href="https://www.kaufmann-ulm.de/" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Kaufmann</div>
+                    <div class="partner-url">www.kaufmann-ulm.de</div>
+                </a>
+                <a href="https://www.resitrix.de" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Resitrix</div>
+                    <div class="partner-url">www.resitrix.de</div>
+                </a>
+                <a href="https://www.prefa.de" target="_blank" rel="noopener" class="partner-card">
+                    <div class="partner-name">Prefa</div>
+                    <div class="partner-url">www.prefa.de</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REFERENZEN ===== -->
+    <section class="section" id="referenzen">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Qualität & Vertrauen</span>
+                <h2>Referenzen & Zertifizierungen</h2>
+                <p>Unsere Qualifikationen und Empfehlungen sprechen für sich.</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">&#9989;</div>
+                    <h3>TRGS 519 Zulassung</h3>
+                    <p>Zertifizierter Fachbetrieb für Asbestabbau, geprüft durch den TÜV Süd.</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">&#9733;</div>
+                    <h3>Empfehlungsschreiben</h3>
+                    <p>Professionelle Referenzen und Empfehlungen zufriedener Kunden und Partner.</p>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">&#128736;</div>
+                    <h3>Meisterbetrieb</h3>
+                    <p>Fachbetrieb mit langjähriger Erfahrung und höchsten Qualitätsansprüchen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KONTAKT ===== -->
+    <section class="section section-alt" id="kontakt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Kontakt</span>
+                <h2>So finden Sie uns</h2>
+                <p>Haben Sie Fragen, Wünsche oder Anregungen? Nehmen Sie Kontakt mit uns auf.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Ihr schnellster Weg zu uns</h3>
+                    <p>Wir freuen uns auf Ihre Anfrage und beraten Sie gerne persönlich zu Ihrem Projekt.</p>
+
+                    <div class="contact-block">
+                        <div class="contact-block-label">Adresse</div>
+                        <div class="contact-block-value">
+                            Spenglerei Spevan<br>
+                            Inhaber: Peter Spevan<br>
+                            Regensburger Str. 267<br>
+                            85055 Ingolstadt
+                        </div>
+                    </div>
+
+                    <div class="contact-block">
+                        <div class="contact-block-label">Telefon & Fax</div>
+                        <div class="contact-block-value">
+                            Tel.: <a href="tel:+498419376218">+49 (0)841 93762183</a><br>
+                            Fax: +49 (0)841 99374068<br>
+                            Mobil: <a href="tel:+4915231823113">+49 (0)152 31823113</a>
+                        </div>
+                    </div>
+
+                    <a href="tel:+498419376218" class="btn btn-dark" style="margin-top: 16px;">Jetzt anrufen</a>
+                </div>
+
+                <div class="contact-map">
+                    <div class="contact-map-inner">
+                        <div class="map-icon">&#128205;</div>
+                        <p style="color: var(--color-text-medium); font-size: 0.9rem;">Regensburger Str. 267, 85055 Ingolstadt</p>
+                        <a href="https://www.openstreetmap.org/?mlat=48.7436&mlon=11.4529#map=16/48.7436/11.4529" target="_blank" rel="noopener">Auf Karte anzeigen &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FIXED SIDE BUTTONS ===== -->
+    <div class="side-buttons">
+        <a href="tel:+498419376218" class="side-btn">&#9742; Anrufen</a>
+        <a href="#kontakt" class="side-btn">&#9993; Kontakt</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand"><img src="https://www.spevan.de/images/Website-Spevan-Logo.png" alt="Spenglerei Spevan Logo"></div>
+                    <p class="footer-desc">Ihr zuverlässiger Fachbetrieb für Spenglerarbeiten, Metalldächer, Fassaden und Abdichtungen in Ingolstadt.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#ueber-uns">Über uns</a></li>
+                        <li><a href="#leistungen">Leistungen</a></li>
+                        <li><a href="#partner">Partner</a></li>
+                        <li><a href="#referenzen">Referenzen</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Leistungen</h4>
+                    <ul class="footer-links">
+                        <li><a href="#leistungen">Spenglerarbeiten</a></li>
+                        <li><a href="#leistungen">Metalldächer</a></li>
+                        <li><a href="#leistungen">Foliendächer</a></li>
+                        <li><a href="#leistungen">EPDM Dächer</a></li>
+                        <li><a href="#leistungen">Asbestabbau</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact-item">Regensburger Str. 267</div>
+                    <div class="footer-contact-item">85055 Ingolstadt</div>
+                    <div class="footer-contact-item" style="margin-top:12px;">Tel.: +49 (0)841 93762183</div>
+                    <div class="footer-contact-item">Mobil: +49 (0)152 31823113</div>
+                    <div class="footer-contact-item">Fax: +49 (0)841 99374068</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Spenglerei Spevan. Alle Rechte vorbehalten.</span>
+                <div class="footer-bottom-links">
+                    <a href="#impressum">Impressum</a>
+                    <a href="#datenschutz">Datenschutz</a>
+                    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Nach oben &uarr;</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Sticky Navigation
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = nav.offsetHeight + 16;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
